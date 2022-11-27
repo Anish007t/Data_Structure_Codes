@@ -74,7 +74,7 @@ void deletion()
 }
 void display()
 {
-	int f=front,r=rear;
+	int i;
 	if(front==-1)
 	{
 		printf("\nQueue Underflow!!!");
@@ -82,20 +82,10 @@ void display()
 	else
 	{
 		printf("\nQueue elements=");
-		if(f<=r)
-			while(f<=r)
-			{
-				printf("%d ",cq[f]);
-				f++;
-			}
-		else
-		{
-			while(f<=MAX-1)
-			{
-				printf("%d ",cq[f]);
-				f++;
-			}
-		}
-		printf("\n");
-	}
+        for(i=front;i!=rear;i=(i+1)%MAX)
+        {
+            printf("%d ",cq[i]);
+        }
+		printf("%d ",cq[i]);
+    }
 }
