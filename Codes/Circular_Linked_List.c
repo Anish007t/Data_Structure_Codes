@@ -98,6 +98,7 @@ int main()
                 sort();
                 break;
             case 13:
+                printf("\nProgramme exited.");
                 exit(0);
             default:
                 printf("\nWrong choice.");
@@ -319,22 +320,27 @@ void rev()
 }
 void ser(int val)
 {
-    NODE *curr=last->next;
-    int flag=0,i=0;
-    do
+    if (last==NULL)
     {
-        i++;
-        if(curr->value==val)
+        printf("\nList is empty.");
+    }
+    else
+    {
+        NODE *curr=last->next;
+        int flag=0,i=0;
+        do
         {
-            printf("\n%d is at position %d",val,i);
-            flag=1;
-            break;
-        }
-        else
+            i++;
+            if(curr->value==val)
+            {
+                printf("\n%d is at position %d",val,i);
+                flag=1;
+            }
             curr=curr->next;
-    } while (curr!=last->next);
-    if(flag==0)
-        printf("\nValue does not exist.");
+        } while (curr!=last->next);
+        if(flag==0)
+            printf("\nValue does not exist.");
+    }
 }
 void sort()
 {
